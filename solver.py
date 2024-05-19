@@ -213,7 +213,9 @@ class Solver(object):
 
         print("======================TEST MODE======================")
 
-        criterion = nn.MSELoss(reduce=False)
+        # size_average and reduce args will be deprecated
+        criterion = nn.MSELoss(reduction='none')
+        # criterion = nn.MSELoss(reduce=False)
 
         # (1) stastic on the train set
         attens_energy = []
